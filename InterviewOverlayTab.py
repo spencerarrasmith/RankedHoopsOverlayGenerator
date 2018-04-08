@@ -17,14 +17,30 @@ class InterviewOverlayTab(tk.Frame):
         self.lockerroomfile = ImageTk.PhotoImage(self.lockerroomfile.resize((int(self.lockerroomfile.width/4),int(self.lockerroomfile.height/4)),Image.ANTIALIAS))
         self.lockerroomlabel = tk.Label(master=self.lockerroomframe, image=self.lockerroomfile)
         #rhiconlabel.image = rhicon
-        self.lockerroomlabel.grid(row=0,column=0,padx=10)
+        self.lockerroomlabel.grid(row=0,column=1,padx=10)
 
-        tk.Label(master=self.lockerroomframe,text="Team Name").grid(row=1,column=0,sticky=tk.N)
+        tk.Label(master=self.lockerroomframe,text="Team Name").grid(row=1,column=1,sticky=tk.N)
 
         self.teamnamestring = tk.StringVar()
         self.teamnamestring.trace('w',self.limitStrings)
         self.teamnameentry = tk.Entry(master=self.lockerroomframe,textvariable=self.teamnamestring,width=30,justify='center')
-        self.teamnameentry.grid(row=2,column=0,pady=5)
+        self.teamnameentry.grid(row=2,column=1,pady=5)
+
+        tk.Label(master=self.lockerroomframe, text="Player 1").grid(row=2, column=0, sticky=tk.N)
+
+        self.player1string = tk.StringVar()
+        self.player1string.trace('w',self.limitStrings)
+        self.player1entry = tk.Entry(master=self.lockerroomframe,textvariable=self.player1string,width=20,justify='right')
+        self.player1entry.grid(row=3,column=0,pady=5)
+
+        tk.Label(master=self.lockerroomframe, text="Player 2").grid(row=2, column=2, sticky=tk.N)
+
+        self.player2string = tk.StringVar()
+        self.player2string.trace('w',self.limitStrings)
+        self.player2entry = tk.Entry(master=self.lockerroomframe,textvariable=self.player2string,width=20,justify='left')
+        self.player2entry.grid(row=3,column=2,pady=5)
+
+        tk.Label(master=self.lockerroomframe, text="and").grid(row=3, column=1, sticky=tk.S)
 
     ## CASTERS
         self.logoframe = tk.Frame(master=self, width=800, height=200)
@@ -98,6 +114,14 @@ class InterviewOverlayTab(tk.Frame):
         if len(teamname) > 30:
             self.teamnamestring.set(teamname[:30])
 
+        player1 = self.player1string.get()
+        if len(player1) > 25:
+            self.player1string.set(player1[:25])
+
+        player2 = self.player2string.get()
+        if len(player2) > 25:
+            self.player2string.set(player2[:25])
+
         name1 = self.leftcasterstring.get()
         if len(name1) > 16:
             self.leftcasterstring.set(name1[:16])
@@ -162,6 +186,14 @@ class InterviewOverlayTab(tk.Frame):
         font2 = ImageFont.truetype("img/GOTHICB.TTF", 75)
         w, h = draw.textsize(team, font2)
         draw.text(((W - w) / 2 + 481, (H - h) / 2 + 55), team, (255, 255, 255, 255), font=font2)
+
+    ## PLAYERS
+        W, H = (960, 850)
+        players = self.player1string.get() + " and " + self.player2string.get()
+
+        font3 = ImageFont.truetype("img/GOTHICB.TTF", 60)
+        w, h = draw.textsize(players, font3)
+        draw.text(((W - w) / 2 + 481, (H - h) / 2 + 55), players, (255, 255, 255, 255), font=font3)
 
     ## CASTERS
         W, H = (580, 58)
