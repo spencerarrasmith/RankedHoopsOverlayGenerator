@@ -1,2 +1,2 @@
 @echo off
-python -m OverlayGenerator
+start pythonw -m OverlayGenerator
