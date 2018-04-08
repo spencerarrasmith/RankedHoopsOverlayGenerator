@@ -23,10 +23,12 @@ class CastersOverlayTab(tk.Frame):
 
         tk.Label(master=self.logoframe,text="Caster 1").grid(row=0, column=0, sticky=tk.S)
         self.leftcasterstring = tk.StringVar()
+        self.leftcasterstring.trace('w',self.limitStrings)
         self.leftcasterentry = tk.Entry(master=self.logoframe,textvariable = self.leftcasterstring,width=30, justify='center')
         self.leftcasterentry.grid(row=1,column=0,padx=80)
 
         self.leftcasterhandlestring = tk.StringVar()
+        self.leftcasterhandlestring.trace('w', self.limitStrings)
         self.leftcasterhandleentry = tk.Entry(master=self.logoframe,textvariable = self.leftcasterhandlestring,width=20, justify='center')
         self.leftcasterhandleentry.grid(row=2,column=0,sticky=tk.NE,padx=80)
 
@@ -38,10 +40,12 @@ class CastersOverlayTab(tk.Frame):
 
         tk.Label(master=self.logoframe,text="Caster 2").grid(row=0,column=2, sticky=tk.S)
         self.rightcasterstring = tk.StringVar()
+        self.rightcasterstring.trace('w', self.limitStrings)
         self.rightcasterentry = tk.Entry(master=self.logoframe,textvariable = self.rightcasterstring,width=30, justify='center')
         self.rightcasterentry.grid(row=1,column=2,padx=80)
 
         self.rightcasterhandlestring = tk.StringVar()
+        self.rightcasterhandlestring.trace('w', self.limitStrings)
         self.rightcasterhandleentry = tk.Entry(master=self.logoframe,textvariable = self.rightcasterhandlestring,width=20, justify='center')
         self.rightcasterhandleentry.grid(row=2,column=2,sticky=tk.NW,padx=80)
 
@@ -79,6 +83,25 @@ class CastersOverlayTab(tk.Frame):
         self.generatebuttonimage = tk.PhotoImage(file="img/generatebutton.png")
         self.generatebutton = tk.Button(master=self.buttonframe, image=self.generatebuttonimage,command=self.GenerateImage)
         self.generatebutton.grid(row=99,column=1,padx=30,pady=10)
+
+    def limitStrings(self, *args):
+        name1 = self.leftcasterstring.get()
+        if len(name1) > 16:
+            self.leftcasterstring.set(name1[:16])
+
+        handle1 = self.leftcasterhandlestring.get()
+        if len(handle1) > 20:
+            self.leftcasterhandlestring.set(handle1[:20])
+
+        name2 = self.rightcasterstring.get()
+        if len(name2) > 16:
+            self.rightcasterstring.set(name2[:16])
+
+        handle2 = self.rightcasterhandlestring.get()
+        if len(handle2) > 20:
+            self.rightcasterhandlestring.set(handle1[:20])
+
+        return
 
     def ResetValues(self):
         self.tournamenttypestring.set("PC + PS4")
@@ -139,15 +162,15 @@ class CastersOverlayTab(tk.Frame):
 
         font = ImageFont.truetype("img/GOTHICB.ttf", 30)
         caster1handle = self.leftcasterhandlestring.get()
-        if len(caster1handle) > 16:
-            caster1handle = caster1handle[0:16]
+        if len(caster1handle) > 20:
+            caster1handle = caster1handle[0:20]
 
         w, h = draw.textsize(caster1handle, font)
         draw.text(((W - w) / 2 + 306, (H - h) / 2 + 928), caster1handle, (255, 255, 255, 240), font=font)
 
         caster2handle = self.rightcasterhandlestring.get()
-        if len(caster2handle) > 16:
-            caster2handle = caster2handle[0:16]
+        if len(caster2handle) > 20:
+            caster2handle = caster2handle[0:20]
 
         w, h = draw.textsize(caster2handle, font)
         draw.text(((W - w) / 2 + (1920 - W - 306), (H - h) / 2 + 928), caster2handle, (255, 255, 255, 240), font=font)

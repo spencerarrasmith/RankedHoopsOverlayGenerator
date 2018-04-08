@@ -19,6 +19,7 @@ class InGameOverlayTab(tk.Frame):
 
         self.team1namestring = tk.StringVar()
         self.team1namestring.set("Blue Team")
+        self.team1namestring.trace('w', self.limitStrings)
         self.team1namebox = tk.Entry(master=self.blueteamframe, textvariable=self.team1namestring,width=25, justify='center')
         self.team1namebox.grid(row=1,column=0,padx=10, pady=10, columnspan=2)
 
@@ -42,6 +43,7 @@ class InGameOverlayTab(tk.Frame):
 
         self.team2namestring = tk.StringVar()
         self.team2namestring.set("Orange Team")
+        self.team2namestring.trace('w', self.limitStrings)
         self.team2namebox = tk.Entry(master=self.orangeteamframe, textvariable=self.team2namestring, width=25, justify='center')
         self.team2namebox.grid(row=1, column=3, padx=10, pady=10, columnspan=2)
 
@@ -63,6 +65,7 @@ class InGameOverlayTab(tk.Frame):
 
         self.gamenamestring = tk.StringVar()
         self.gamenamestring.set("R1W - BO3")
+        self.gamenamestring.trace('w', self.limitStrings)
         self.gamenamebox = tk.Entry(master=self.logoframe, textvariable=self.gamenamestring,width=15, justify='center')
         self.gamenamebox.grid(row=3,column=1,padx=15)
 
@@ -104,6 +107,20 @@ class InGameOverlayTab(tk.Frame):
         #self.quitbutton = tk.Button(self, text="Quit", command=self.quit)
         #self.quitbutton.grid(row=100,column=3,pady=10)
 
+    def limitStrings(self, *args):
+        name1 = self.team1namestring.get()
+        if len(name1) > 18:
+            self.team1namestring.set(name1[:18])
+
+        name2 = self.team2namestring.get()
+        if len(name2) > 18:
+            self.team2namestring.set(name2[:18])
+
+        game = self.gamenamestring.get()
+        if len(game) > 9:
+            self.gamenamestring.set(game[:9])
+
+        return
 
     def ResetValues(self):
         self.team1namestring.set("Blue Team")
