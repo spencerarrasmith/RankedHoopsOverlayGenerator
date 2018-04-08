@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import ttk, Tk
 from InGameOverlayTab import InGameOverlayTab
 from CastersOverlayTab import CastersOverlayTab
+from InterviewOverlayTab import InterviewOverlayTab
 
 color_inactive = "#E8E8E8"
 color_active = "#F49C23"
@@ -36,6 +37,9 @@ class OverlayGenerator(tk.Frame):
 
         self.tab2 = CastersOverlayTab(self.notebook)
         self.notebook.add(self.tab2, text="Casters")
+
+        self.tab3 = InterviewOverlayTab(self.notebook)
+        self.notebook.add(self.tab3, text="Interview")
 
         self.notebook.grid(row=0,column=0,sticky=tk.W)
 
