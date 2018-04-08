@@ -244,6 +244,6 @@ class InGameOverlayTab(tk.Frame):
         #    os.makedirs("/out")
 
         outframe = outframe.resize((int(self.monitorxstring.get()),int(self.monitorystring.get())),resample=Image.ANTIALIAS)
-        outframe.save("img/overlay_current.png")
+        outframe.save("output/ingame_current.png")
 
         return outframe
