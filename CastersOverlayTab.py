@@ -13,13 +13,23 @@ class CastersOverlayTab(tk.Frame):
         tk.Label(master=self.tournamenttypeframe,text="Tournament Type").grid(row=0,column=0,sticky=tk.N)
 
         self.tournamenttypestring = tk.StringVar()
-        self.tournamenttypestring.set("PC + PS4")
-        self.tournamenttypemenu = tk.OptionMenu(self.tournamenttypeframe, self.tournamenttypestring, "PC + PS4", "PC + XBOX + SWITCH", "PC ONLY")
+        self.tournamenttypestring.set("2v2")
+        self.tournamenttypemenu = tk.OptionMenu(self.tournamenttypeframe, self.tournamenttypestring, "2v2", "1v1", "3v3")
         self.tournamenttypemenu.grid(row=1,column=0)
+
+    ## UP NEXT
+        self.upnextframe = tk.Frame(master=self, width=800, height=200)
+        self.upnextframe.grid(row=1, column=0,columnspan=3)
+
+        tk.Label(master=self.upnextframe,text="Up Next:").grid(row=0, column=0, sticky=tk.S)
+        self.upnextstring = tk.StringVar()
+        self.upnextstring.trace('w',self.limitStrings)
+        self.upnextentry = tk.Entry(master=self.upnextframe,textvariable = self.upnextstring,width=30, justify='center')
+        self.upnextentry.grid(row=1,column=0,padx=80)
 
     ## CASTERS
         self.logoframe = tk.Frame(master=self, width=800, height=200)
-        self.logoframe.grid(row=1, column=0,columnspan=3)
+        self.logoframe.grid(row=2, column=0,columnspan=3)
 
         tk.Label(master=self.logoframe,text="Caster 1").grid(row=0, column=0, sticky=tk.S)
         self.leftcasterstring = tk.StringVar()
@@ -52,7 +62,7 @@ class CastersOverlayTab(tk.Frame):
 
     ## SCREEN INFORMATION
         self.monitorframe = tk.Frame(master=self, width=200, height=200, pady=10)
-        self.monitorframe.grid(row=2, column=1)
+        self.monitorframe.grid(row=3, column=1)
 
         tk.Label(master=self.monitorframe, text="Resolution:").grid(row=96,column=1)
 
@@ -69,7 +79,7 @@ class CastersOverlayTab(tk.Frame):
 
      ## BUTTONS
         self.buttonframe = tk.Frame(master=self, width=200, height=200)
-        self.buttonframe.grid(row=3, column=0, columnspan=3, sticky=tk.S)
+        self.buttonframe.grid(row=4, column=0, columnspan=3, sticky=tk.S)
 
         self.resetbuttonimage = tk.PhotoImage(file="img/resetbutton.png")
         self.resetbutton = tk.Button(master=self.buttonframe, image=self.resetbuttonimage,command=self.ResetValues)
@@ -84,7 +94,25 @@ class CastersOverlayTab(tk.Frame):
         self.generatebutton = tk.Button(master=self.buttonframe, image=self.generatebuttonimage,command=self.GenerateImage)
         self.generatebutton.grid(row=99,column=1,padx=30,pady=10)
 
+        self.bind("<Button-1>", lambda event: self.focus_set())
+        self.tournamenttypemenu.bind("<Button-1>", lambda event: self.focus_set())
+        self.upnextframe.bind("<Button-1>", lambda event: self.focus_set())
+        self.leftcasterentry.bind("<Button-1>", lambda event: self.focus_set())
+        self.leftcasterhandleentry.bind("<Button-1>", lambda event: self.focus_set())
+        self.rightcasterentry.bind("<Button-1>", lambda event: self.focus_set())
+        self.rightcasterhandleentry.bind("<Button-1>", lambda event: self.focus_set())
+
+        self.rhiconlabel.bind("<Button-1>", lambda event: self.focus_set())
+        self.resetbutton.bind("<Button-1>", lambda event: self.focus_set())
+        self.viewbutton.bind("<Button-1>", lambda event: self.focus_set())
+        self.generatebutton.bind("<Button-1>", lambda event: self.focus_set())
+
+
     def limitStrings(self, *args):
+        upnext = self.upnextstring.get()
+        if len(upnext) > 16:
+            self.upnextstring.set(upnext[:16])
+
         name1 = self.leftcasterstring.get()
         if len(name1) > 16:
             self.leftcasterstring.set(name1[:16])
@@ -104,7 +132,7 @@ class CastersOverlayTab(tk.Frame):
         return
 
     def ResetValues(self):
-        self.tournamenttypestring.set("PC + PS4")
+        self.tournamenttypestring.set("2v2")
         self.leftcasterstring.set("")
         self.leftcasterhandlestring.set("")
         self.rightcasterstring.set("")
@@ -119,7 +147,10 @@ class CastersOverlayTab(tk.Frame):
         return
 
     def GenerateImage(self):
-        overlaybase = Image.open("img/pregame_blank.png")
+        if self.tournamenttypestring.get() == "2v2":
+            overlaybase = Image.open("img/pregame_blank.png")
+        elif self.tournamenttypestring.get() == "3v3":
+            overlaybase = Image.open("img/pregame_blank_3v3.png")
 
         outframe = Image.new("RGBA", (1920, 1080))
 
@@ -137,11 +168,27 @@ class CastersOverlayTab(tk.Frame):
         W, H = (400, 100)
         tournamentname = self.tournamenttypestring.get()
 
-        font = ImageFont.truetype("img/Futura Extra Bold.ttf", 50)
-        w, h = draw.textsize(tournamentname, font)
+        #font = ImageFont.truetype("img/Futura Extra Bold.ttf", 50)
+        #w, h = draw.textsize(tournamentname, font)
         # print(draw.textsize(teamname1, font))
-        draw.text(((W - w) / 2 + 760, (H - h) / 2 + 200), tournamentname, (255, 255, 255, 255), font=font)
+        #draw.text(((W - w) / 2 + 760, (H - h) / 2 + 200), tournamentname, (255, 255, 255, 255), font=font)
 
+    ## UP NEXT
+        W, H = (640, 100)
+        upnext = self.upnextstring.get()
+
+        font = ImageFont.truetype("img/Futura Extra Bold.ttf", 50)
+        w, h = draw.textsize("Up Next:", font)
+        # print(draw.textsize(teamname1, font))
+        draw.text(((W - w) / 2 + 640, (H - h) / 2 + 330), "Up Next:", (255, 255, 255, 255), font=font)
+
+        W, H = (640, 100)
+        upnext = self.upnextstring.get()
+
+        font = ImageFont.truetype("img/Futura Extra Bold.ttf", 72)
+        w, h = draw.textsize(upnext, font)
+        # print(draw.textsize(teamname1, font))
+        draw.text(((W - w) / 2 + 640, (H - h) / 2 + 400), upnext, (255, 255, 255, 255), font=font)
 
     ## CASTERS
         W, H = (580, 58)

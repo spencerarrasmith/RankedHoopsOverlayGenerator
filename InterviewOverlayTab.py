@@ -19,6 +19,11 @@ class InterviewOverlayTab(tk.Frame):
         #rhiconlabel.image = rhicon
         self.lockerroomlabel.grid(row=0,column=1,padx=10)
 
+        self.tournamenttypestring = tk.StringVar()
+        self.tournamenttypestring.set("2v2")
+        self.tournamenttypemenu = tk.OptionMenu(self.lockerroomframe, self.tournamenttypestring, "2v2", "1v1", "3v3")
+        self.tournamenttypemenu.grid(row=0,column=2)
+
         tk.Label(master=self.lockerroomframe,text="Team Name").grid(row=1,column=1,sticky=tk.N)
 
         self.teamnamestring = tk.StringVar()
@@ -109,6 +114,21 @@ class InterviewOverlayTab(tk.Frame):
         self.generatebutton = tk.Button(master=self.buttonframe, image=self.generatebuttonimage,command=self.GenerateImage)
         self.generatebutton.grid(row=99,column=1,padx=30,pady=10)
 
+
+        self.bind("<Button-1>", lambda event: self.focus_set())
+        self.teamnameentry.bind("<Button-1>", lambda event: self.focus_set())
+        self.player1entry.bind("<Button-1>", lambda event: self.focus_set())
+        self.player2entry.bind("<Button-1>", lambda event: self.focus_set())
+        self.leftcasterentry.bind("<Button-1>", lambda event: self.focus_set())
+        self.leftcasterhandleentry.bind("<Button-1>", lambda event: self.focus_set())
+        self.rightcasterentry.bind("<Button-1>", lambda event: self.focus_set())
+        self.rightcasterhandleentry.bind("<Button-1>", lambda event: self.focus_set())
+
+        self.rhiconlabel.bind("<Button-1>", lambda event: self.focus_set())
+        self.resetbutton.bind("<Button-1>", lambda event: self.focus_set())
+        self.viewbutton.bind("<Button-1>", lambda event: self.focus_set())
+        self.generatebutton.bind("<Button-1>", lambda event: self.focus_set())
+
     def limitStrings(self, *args):
         teamname = self.teamnamestring.get()
         if len(teamname) > 30:
@@ -156,7 +176,10 @@ class InterviewOverlayTab(tk.Frame):
         return
 
     def GenerateImage(self):
-        overlaybase = Image.open("img/pregame_blank.png")
+        if self.tournamenttypestring.get() == "2v2":
+            overlaybase = Image.open("img/pregame_blank.png")
+        elif self.tournamenttypestring.get() == "3v3":
+            overlaybase = Image.open("img/pregame_blank_3v3.png")
 
         outframe = Image.new("RGBA", (1920, 1080))
 

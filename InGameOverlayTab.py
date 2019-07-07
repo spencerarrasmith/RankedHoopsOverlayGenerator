@@ -107,6 +107,17 @@ class InGameOverlayTab(tk.Frame):
         #self.quitbutton = tk.Button(self, text="Quit", command=self.quit)
         #self.quitbutton.grid(row=100,column=3,pady=10)
 
+        self.bind("<Button-1>", lambda event: self.focus_set())
+        self.blueteamframe.bind("<Button-1>", lambda event: self.focus_set())
+        self.orangeteamframe.bind("<Button-1>", lambda event: self.focus_set())
+        self.blueteamiconlabel.bind("<Button-1>", lambda event: self.focus_set())
+        self.orangeteamiconlabel.bind("<Button-1>", lambda event: self.focus_set())
+
+        self.rhiconlabel.bind("<Button-1>", lambda event: self.focus_set())
+        self.resetbutton.bind("<Button-1>", lambda event: self.focus_set())
+        self.viewbutton.bind("<Button-1>", lambda event: self.focus_set())
+        self.generatebutton.bind("<Button-1>", lambda event: self.focus_set())
+
     def limitStrings(self, *args):
         name1 = self.team1namestring.get()
         if len(name1) > 18:
