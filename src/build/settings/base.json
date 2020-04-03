@@ -1,0 +1,6 @@
+{
+    "app_name": "Overlay Generator",
+    "author": "Ranked Hoops",
+    "main_module": "src/main/python/main.py",
+    "version": "2.0.0"
+}

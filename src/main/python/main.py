@@ -7,9 +7,7 @@ import ctypes
 import queue
 
 # Import all the GUI elements from their respective files
-from gui_elements.BPSerialController.BPSerialController import BPSerialController
-from gui_elements.BPSerialController.BPSerialProtocol import BPSerialProtocol
-from gui_elements.BPMenuBar import BPMenuBar
+from gui_elements.RHMenuBar import RHMenuBar
 
 from gui_elements.Tabs.Tab_Home import Tab_Home
 from gui_elements.Tabs.Tab_InGame import Tab_InGame
@@ -19,7 +17,7 @@ from gui_elements.Tabs.Tab_Interview import Tab_Interview
 from gui_elements import _version
 
 
-class BPLowPowerModuleGUI(ApplicationContext):
+class RankedHoopsOverlayGenerator(ApplicationContext):
     """The main GUI window"""
     def __init__(self):
         super().__init__() #sys.argv)
@@ -235,10 +233,9 @@ class BPLowPowerModuleGUI(ApplicationContext):
         #return super().eventFilter(self, event)
 
 
-
 if __name__ == "__main__":
     appctxt = ApplicationContext()
-    app = BPLowPowerModuleGUI()
+    app = RankedHoopsOverlayGenerator()
     exit_code = appctxt.app.exec_()
     sys.exit(exit_code)
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(_version.__appid__)
