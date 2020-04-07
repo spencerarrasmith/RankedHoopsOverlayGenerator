@@ -2,87 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="819917d1-38d1-41e4-9cb0-f608e654103d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/build/settings/base.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/build/settings/linux.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/build/settings/mac.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/icons/base/16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/icons/base/24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/icons/base/32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/icons/base/48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/icons/base/64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/icons/linux/1024.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/icons/linux/128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/icons/linux/256.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/icons/linux/512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/icons/mac/1024.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/icons/mac/128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/icons/mac/256.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/icons/mac/512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/icons/rhlogo.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/python/gui_elements/RHMenuBar.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/python/gui_elements/Tabs/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/python/gui_elements/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/python/gui_elements/_version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/python/gui_elements/gui_textblocks.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/base/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/OverlayGenerator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OverlayGenerator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CastersOverlayTab.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/CastersOverlayTab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InGameOverlayTab.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/InGameOverlayTab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InterviewOverlayTab.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/InterviewOverlayTab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OverlayGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/OverlayGenerator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RankedHoopsOverlayGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TkCustom/TkCustom.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/TkCustom/TkCustom.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui_elements/Tabs/Tab_Home.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/gui_elements/Tabs/Tab_Home.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui_elements/Tabs/Tab_InGame.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/gui_elements/Tabs/Tab_InGame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui_elements/Tabs/Tab_Intermission.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/gui_elements/Tabs/Tab_Intermission.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui_elements/Tabs/Tab_Interview.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/gui_elements/Tabs/Tab_Interview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Futura Extra Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/Futura Extra Bold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/GOTHIC.TTF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/GOTHIC.TTF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/GOTHICB.TTF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/GOTHICB.TTF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/GOTHICBI.TTF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/GOTHICBI.TTF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/GOTHICI.TTF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/GOTHICI.TTF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Gotham Thin Regular.otf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/Gotham Thin Regular.otf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/RankedHoops.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/RankedHoops.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/blueteam.pdn" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/blueteam.pdn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/blueteambar.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/blueteambar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/buttons.pdn" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/buttons.pdn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/casters.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/casters.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/favicon.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/favicon.bmp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/generatebutton.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/generatebutton.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/ingame_blank.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/ingame_blank.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/ingame_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/ingame_current.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/interview.psd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/interview.psd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/lockerroom.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/lockerroom.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/orangeteam.pdn" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/orangeteam.pdn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/orangeteambar.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/orangeteambar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/outro.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/outro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/post-game.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/post-game.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/post-game3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/post-game3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/pre-game.pdn" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/pre-game.pdn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/pre-game.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/pre-game.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/pre-game3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/pre-game3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/pregame_blank.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/pregame_blank.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/pregame_blank_3v3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/pregame_blank_3v3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/resetbutton.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/resetbutton.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/rh-brb.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/rh-brb.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/rhicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/rhicon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/viewbutton.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/viewbutton.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/win_blue_on.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/win_blue_on.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/win_blue_transparent.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/win_blue_transparent.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/win_orange_on.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/win_orange_on.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/win_orange_transparent.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/base/images/win_orange_transparent.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/casters_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/output/casters_current.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/ingame_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/output/ingame_current.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/interview_current.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/output/interview_current.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/icons/rhlogo.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/PyQtRH/PyQtRH.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/PyQtRH/PyQtRH.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/PyQtRH/widgetStyles.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/PyQtRH/widgetStyles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/gui_elements/RHMenuBar.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/gui_elements/RHMenuBar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/gui_elements/Tabs/Tab_Home.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/gui_elements/Tabs/Tab_Home.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/gui_elements/Tabs/Tab_InGame.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/gui_elements/Tabs/Tab_InGame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/gui_elements/Tabs/Tab_Intermission.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/gui_elements/Tabs/Tab_Intermission.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/gui_elements/Tabs/Tab_Interview.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/gui_elements/Tabs/Tab_Interview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -109,6 +38,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RunDashboard">

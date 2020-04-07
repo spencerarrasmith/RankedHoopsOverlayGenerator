@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import Qt
 from gui_elements.gui_textblocks import *
-from pyqtrh.PyQtRH import QRHTextPopup
+from PyQtRH.PyQtRH import QRHTextPopup
 
 import os, subprocess
 
