@@ -151,6 +151,8 @@ class CastersOverlayTab(tk.Frame):
             overlaybase = Image.open("img/pregame_blank.png")
         elif self.tournamenttypestring.get() == "3v3":
             overlaybase = Image.open("img/pregame_blank_3v3.png")
+        elif self.tournamenttypestring.get() == "1v1":
+            overlaybase = Image.open("img/pregame_blank_1v1.png")
 
         outframe = Image.new("RGBA", (1920, 1080))
 
