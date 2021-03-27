@@ -208,15 +208,15 @@ class InGameOverlayTab(tk.Frame):
             icon_orange = Image.open("img/teamicons/teamicon_sockcar.png")
         elif self.team2iconstring.get() == "USA":
             icon_orange = Image.open("img/teamicons/teamicon_usa.png")
-        elif self.team1iconstring.get() == "RLCS":
+        elif self.team2iconstring.get() == "RLCS":
             icon_orange = Image.open("img/teamicons/teamicon_rlcs.png")
-        elif self.team1iconstring.get() == "SSL":
+        elif self.team2iconstring.get() == "SSL":
             icon_orange = Image.open("img/teamicons/teamicon_ssl.png")
-        elif self.team1iconstring.get() == "TheWall":
+        elif self.team2iconstring.get() == "TheWall":
             icon_orange = Image.open("img/teamicons/teamicon_thewall.png")
-        elif self.team1iconstring.get() == "Trihouse":
+        elif self.team2iconstring.get() == "Trihouse":
             icon_orange = Image.open("img/teamicons/teamicon_trihouse.png")
-        elif self.team1iconstring.get() == "HoR":
+        elif self.team2iconstring.get() == "HoR":
             icon_orange = Image.open("img/teamicons/teamicon_hor.png")
 
         outframe = copy.deepcopy(overlayimage)
