@@ -1,5 +1,7 @@
 from PIL import Image, ImageTk, ImageFont, ImageDraw
 import tkinter as tk
+import copy
+from operator import add
 
 class CastersOverlayTab(tk.Frame):
     def __init__(self, root):
@@ -154,7 +156,7 @@ class CastersOverlayTab(tk.Frame):
         elif self.tournamenttypestring.get() == "1v1":
             overlaybase = Image.open("img/pregame_blank_1v1.png")
 
-        outframe = Image.new("RGBA", (1920, 1080))
+        outframe = copy.deepcopy(overlaybase)
 
     ## BANNERS
         for j in range(170):
@@ -170,16 +172,11 @@ class CastersOverlayTab(tk.Frame):
         W, H = (400, 100)
         tournamentname = self.tournamenttypestring.get()
 
-        #font = ImageFont.truetype("img/Futura Extra Bold.ttf", 50)
-        #w, h = draw.textsize(tournamentname, font)
-        # print(draw.textsize(teamname1, font))
-        #draw.text(((W - w) / 2 + 760, (H - h) / 2 + 200), tournamentname, (255, 255, 255, 255), font=font)
-
     ## UP NEXT
         W, H = (640, 100)
         upnext = self.upnextstring.get()
 
-        font = ImageFont.truetype("img/Futura Extra Bold.ttf", 50)
+        font = ImageFont.truetype("img/ChangaOne-Regular.ttf", 50)
         w, h = draw.textsize("Up Next:", font)
         # print(draw.textsize(teamname1, font))
         draw.text(((W - w) / 2 + 640, (H - h) / 2 + 330), "Up Next:", (255, 255, 255, 255), font=font)
@@ -187,7 +184,7 @@ class CastersOverlayTab(tk.Frame):
         W, H = (640, 100)
         upnext = self.upnextstring.get()
 
-        font = ImageFont.truetype("img/Futura Extra Bold.ttf", 72)
+        font = ImageFont.truetype("img/ChangaOne-Regular.ttf", 96)
         w, h = draw.textsize(upnext, font)
         # print(draw.textsize(teamname1, font))
         draw.text(((W - w) / 2 + 640, (H - h) / 2 + 400), upnext, (255, 255, 255, 255), font=font)
@@ -198,31 +195,31 @@ class CastersOverlayTab(tk.Frame):
         if len(caster1name) > 16:
             caster1name = caster1name[0:16]
 
-        font = ImageFont.truetype("img/GOTHICB.ttf", 60)
+        font = ImageFont.truetype("img/Montserrat-Medium.ttf", 60)
         w, h = draw.textsize(caster1name, font)
-        draw.text(((W - w) / 2 + 256, (H - h) / 2 + 845), caster1name, (255, 255, 255, 240), font=font)
+        draw.text(((W - w) / 2 + 256, (H - h) / 2 + 780), caster1name, (255, 255, 255, 240), font=font)
 
         caster2name = self.rightcasterstring.get()
         if len(caster2name) > 16:
             caster2name = caster2name[0:16]
 
         w, h = draw.textsize(caster2name, font)
-        draw.text(((W - w) / 2 + (1920 - W - 256), (H - h) / 2 + 845), caster2name, (255, 255, 255, 240), font=font)
+        draw.text(((W - w) / 2 + (1920 - W - 256), (H - h) / 2 + 780), caster2name, (255, 255, 255, 240), font=font)
 
-        font = ImageFont.truetype("img/GOTHICB.ttf", 30)
+        font = ImageFont.truetype("img/Montserrat-Medium.ttf", 30)
         caster1handle = self.leftcasterhandlestring.get()
         if len(caster1handle) > 20:
             caster1handle = caster1handle[0:20]
 
         w, h = draw.textsize(caster1handle, font)
-        draw.text(((W - w) / 2 + 306, (H - h) / 2 + 928), caster1handle, (255, 255, 255, 240), font=font)
+        draw.text(((W - w) / 2 + 306, (H - h) / 2 + 870), caster1handle, (255, 255, 255, 240), font=font)
 
         caster2handle = self.rightcasterhandlestring.get()
         if len(caster2handle) > 20:
             caster2handle = caster2handle[0:20]
 
         w, h = draw.textsize(caster2handle, font)
-        draw.text(((W - w) / 2 + (1920 - W - 306), (H - h) / 2 + 928), caster2handle, (255, 255, 255, 240), font=font)
+        draw.text(((W - w) / 2 + (1920 - W - 306), (H - h) / 2 + 870), caster2handle, (255, 255, 255, 240), font=font)
 
 
     ## RESIZE
