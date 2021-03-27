@@ -47,7 +47,7 @@ class InGameOverlayTab(tk.Frame):
         tk.Label(master=self.blueteamframe, text="Icon:").grid(row=3,column=0, sticky=tk.E)
         self.team1iconstring = tk.StringVar()
         self.team1iconstring.set("Hoops")
-        self.team1iconmenu = tk.OptionMenu(self.blueteamframe, self.team1iconstring, "Hoops", "Sockcar", "USA")
+        self.team1iconmenu = tk.OptionMenu(self.blueteamframe, self.team1iconstring, "Hoops", "Sockcar", "USA", "RLCS", "SSL", "TheWall", "Trihouse", "HoR")
         self.team1iconmenu.grid(row=3,column=1,padx=10,sticky=tk.W)
 
 
@@ -77,7 +77,7 @@ class InGameOverlayTab(tk.Frame):
         tk.Label(master=self.orangeteamframe, text="Icon:").grid(row=3,column=3, sticky=tk.E)
         self.team2iconstring = tk.StringVar()
         self.team2iconstring.set("Hoops")
-        self.team2iconmenu = tk.OptionMenu(self.orangeteamframe, self.team2iconstring, "Hoops", "Sockcar", "USA")
+        self.team2iconmenu = tk.OptionMenu(self.orangeteamframe, self.team2iconstring, "Hoops", "Sockcar", "USA", "RLCS", "SSL", "TheWall", "Trihouse", "HoR")
         self.team2iconmenu.grid(row=3,column=4,padx=10,sticky=tk.W)
 
         ## GAME CONFIG
@@ -184,12 +184,23 @@ class InGameOverlayTab(tk.Frame):
         winorange_off = Image.open("img/win_orange_off.png")
         winorange_on = Image.open("img/win_orange_on.png")
 
+
         if self.team1iconstring.get() == "Hoops":
             icon_blue = Image.open("img/teamicons/teamicon_hoops.png")
         elif self.team1iconstring.get() == "Sockcar":
             icon_blue = Image.open("img/teamicons/teamicon_sockcar.png")
         elif self.team1iconstring.get() == "USA":
             icon_blue = Image.open("img/teamicons/teamicon_usa.png")
+        elif self.team1iconstring.get() == "RLCS":
+            icon_blue = Image.open("img/teamicons/teamicon_rlcs.png")
+        elif self.team1iconstring.get() == "SSL":
+            icon_blue = Image.open("img/teamicons/teamicon_ssl.png")
+        elif self.team1iconstring.get() == "TheWall":
+            icon_blue = Image.open("img/teamicons/teamicon_thewall.png")
+        elif self.team1iconstring.get() == "Trihouse":
+            icon_blue = Image.open("img/teamicons/teamicon_trihouse.png")
+        elif self.team1iconstring.get() == "HoR":
+            icon_blue = Image.open("img/teamicons/teamicon_hor.png")
 
         if self.team2iconstring.get() == "Hoops":
             icon_orange = Image.open("img/teamicons/teamicon_hoops.png")
@@ -197,6 +208,16 @@ class InGameOverlayTab(tk.Frame):
             icon_orange = Image.open("img/teamicons/teamicon_sockcar.png")
         elif self.team2iconstring.get() == "USA":
             icon_orange = Image.open("img/teamicons/teamicon_usa.png")
+        elif self.team1iconstring.get() == "RLCS":
+            icon_orange = Image.open("img/teamicons/teamicon_rlcs.png")
+        elif self.team1iconstring.get() == "SSL":
+            icon_orange = Image.open("img/teamicons/teamicon_ssl.png")
+        elif self.team1iconstring.get() == "TheWall":
+            icon_orange = Image.open("img/teamicons/teamicon_thewall.png")
+        elif self.team1iconstring.get() == "Trihouse":
+            icon_orange = Image.open("img/teamicons/teamicon_trihouse.png")
+        elif self.team1iconstring.get() == "HoR":
+            icon_orange = Image.open("img/teamicons/teamicon_hor.png")
 
         outframe = copy.deepcopy(overlayimage)
 
