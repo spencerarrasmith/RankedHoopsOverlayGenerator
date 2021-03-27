@@ -1,8 +1,8 @@
 from PIL import Image, ImageTk, ImageFont, ImageDraw
 import tkinter as tk
 
-from PIL import Image, ImageTk, ImageFont, ImageDraw
-import tkinter as tk
+import copy
+from operator import add
 
 class InterviewOverlayTab(tk.Frame):
     def __init__(self, root):
@@ -18,11 +18,6 @@ class InterviewOverlayTab(tk.Frame):
         self.lockerroomlabel = tk.Label(master=self.lockerroomframe, image=self.lockerroomfile)
         #rhiconlabel.image = rhicon
         self.lockerroomlabel.grid(row=0,column=1,padx=10)
-
-        self.tournamenttypestring = tk.StringVar()
-        self.tournamenttypestring.set("2v2")
-        self.tournamenttypemenu = tk.OptionMenu(self.lockerroomframe, self.tournamenttypestring, "2v2", "1v1", "3v3")
-        self.tournamenttypemenu.grid(row=0,column=2)
 
         tk.Label(master=self.lockerroomframe,text="Team Name").grid(row=1,column=1,sticky=tk.N)
 
@@ -176,12 +171,8 @@ class InterviewOverlayTab(tk.Frame):
         return
 
     def GenerateImage(self):
-        if self.tournamenttypestring.get() == "2v2":
-            overlaybase = Image.open("img/pregame_blank.png")
-        elif self.tournamenttypestring.get() == "3v3":
-            overlaybase = Image.open("img/pregame_blank_3v3.png")
-
-        outframe = Image.new("RGBA", (1920, 1080))
+        overlaybase = Image.open("img/postgame_blank.png")
+        outframe = copy.deepcopy(overlaybase)
 
     ## BANNERS
         for j in range(170):
@@ -192,12 +183,6 @@ class InterviewOverlayTab(tk.Frame):
             for i in range(outframe.width):
                 outframe.putpixel((i, j), overlaybase.getpixel((i, j)))
 
-    ## IN THE LOCKER ROOM
-        lockerroombase = Image.open("img/lockerroom.png")
-        for i in range(lockerroombase.width):
-            for j in range(lockerroombase.height):
-                outframe.putpixel((int(1920/2-lockerroombase.width/2 + i), int(200 + j)), lockerroombase.getpixel((i,j)))
-
     ## TEAM NAME
         draw = ImageDraw.Draw(outframe)
 
@@ -206,7 +191,7 @@ class InterviewOverlayTab(tk.Frame):
         if len(team) > 30:
             team = team[0:30]
 
-        font2 = ImageFont.truetype("img/GOTHICB.TTF", 75)
+        font2 = ImageFont.truetype("img/ChangaOne-Regular.TTF", 75)
         w, h = draw.textsize(team, font2)
         draw.text(((W - w) / 2 + 481, (H - h) / 2 + 55), team, (255, 255, 255, 255), font=font2)
 
@@ -214,7 +199,7 @@ class InterviewOverlayTab(tk.Frame):
         W, H = (960, 850)
         players = self.player1string.get() + " and " + self.player2string.get()
 
-        font3 = ImageFont.truetype("img/GOTHICB.TTF", 60)
+        font3 = ImageFont.truetype("img/ChangaOne-Regular.TTF", 60)
         w, h = draw.textsize(players, font3)
         draw.text(((W - w) / 2 + 481, (H - h) / 2 + 55), players, (255, 255, 255, 255), font=font3)
 
@@ -224,31 +209,31 @@ class InterviewOverlayTab(tk.Frame):
         if len(caster1name) > 16:
             caster1name = caster1name[0:16]
 
-        font = ImageFont.truetype("img/GOTHICB.ttf", 60)
+        font = ImageFont.truetype("img/Montserrat-Medium.ttf", 60)
         w, h = draw.textsize(caster1name, font)
-        draw.text(((W - w) / 2 + 256, (H - h) / 2 + 845), caster1name, (255, 255, 255, 240), font=font)
+        draw.text(((W - w) / 2 + 256, (H - h) / 2 + 780), caster1name, (255, 255, 255, 240), font=font)
 
         caster2name = self.rightcasterstring.get()
         if len(caster2name) > 16:
             caster2name = caster2name[0:16]
 
         w, h = draw.textsize(caster2name, font)
-        draw.text(((W - w) / 2 + (1920 - W - 256), (H - h) / 2 + 845), caster2name, (255, 255, 255, 240), font=font)
+        draw.text(((W - w) / 2 + (1920 - W - 256), (H - h) / 2 + 780), caster2name, (255, 255, 255, 240), font=font)
 
-        font = ImageFont.truetype("img/GOTHICB.ttf", 30)
+        font = ImageFont.truetype("img/Montserrat-Medium.ttf", 30)
         caster1handle = self.leftcasterhandlestring.get()
         if len(caster1handle) > 20:
             caster1handle = caster1handle[0:20]
 
         w, h = draw.textsize(caster1handle, font)
-        draw.text(((W - w) / 2 + 306, (H - h) / 2 + 928), caster1handle, (255, 255, 255, 240), font=font)
+        draw.text(((W - w) / 2 + 306, (H - h) / 2 + 870), caster1handle, (255, 255, 255, 240), font=font)
 
         caster2handle = self.rightcasterhandlestring.get()
         if len(caster2handle) > 20:
             caster2handle = caster2handle[0:20]
 
         w, h = draw.textsize(caster2handle, font)
-        draw.text(((W - w) / 2 + (1920 - W - 306), (H - h) / 2 + 928), caster2handle, (255, 255, 255, 240), font=font)
+        draw.text(((W - w) / 2 + (1920 - W - 306), (H - h) / 2 + 870), caster2handle, (255, 255, 255, 240), font=font)
 
 
     ## RESIZE

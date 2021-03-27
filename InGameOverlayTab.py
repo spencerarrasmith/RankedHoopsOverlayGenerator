@@ -3,6 +3,7 @@ import tkinter as tk
 import os
 import copy
 from operator import add
+import time
 
 MAX_TEAMNAME_LENGTH = 16
 MAX_MATCHNAME_LENGTH = 20
@@ -43,6 +44,12 @@ class InGameOverlayTab(tk.Frame):
         self.team1winspinbox = tk.Spinbox(master=self.blueteamframe, from_=0, to=5, width=5)
         self.team1winspinbox.grid(row=2,column=1,padx=10,sticky=tk.W)
 
+        tk.Label(master=self.blueteamframe, text="Icon:").grid(row=3,column=0, sticky=tk.E)
+        self.team1iconstring = tk.StringVar()
+        self.team1iconstring.set("Hoops")
+        self.team1iconmenu = tk.OptionMenu(self.blueteamframe, self.team1iconstring, "Hoops", "Sockcar")
+        self.team1iconmenu.grid(row=3,column=1,padx=10,sticky=tk.W)
+
 
         ## ORANGE TEAM
         self.orangeteamframe = tk.Frame(master=self, relief=tk.RIDGE, borderwidth=2, width=200, height=200, padx=10,
@@ -67,6 +74,11 @@ class InGameOverlayTab(tk.Frame):
         self.team2winspinbox = tk.Spinbox(master=self.orangeteamframe, from_=0, to=5, width=5)
         self.team2winspinbox.grid(row=2, column=4, padx=10, sticky=tk.W)
 
+        tk.Label(master=self.orangeteamframe, text="Icon:").grid(row=3,column=3, sticky=tk.E)
+        self.team2iconstring = tk.StringVar()
+        self.team2iconstring.set("Hoops")
+        self.team2iconmenu = tk.OptionMenu(self.orangeteamframe, self.team2iconstring, "Hoops", "Sockcar")
+        self.team2iconmenu.grid(row=3,column=4,padx=10,sticky=tk.W)
 
         ## GAME CONFIG
         self.logoframe = tk.Frame(master=self, width=200, height=200)
@@ -172,6 +184,16 @@ class InGameOverlayTab(tk.Frame):
         winorange_off = Image.open("img/win_orange_off.png")
         winorange_on = Image.open("img/win_orange_on.png")
 
+        if self.team1iconstring.get() == "Hoops":
+            icon_blue = Image.open("img/teamicons/teamicon_hoops.png")
+        elif self.team1iconstring.get() == "Sockcar":
+            icon_blue = Image.open("img/teamicons/teamicon_sockcar.png")
+
+        if self.team2iconstring.get() == "Hoops":
+            icon_orange = Image.open("img/teamicons/teamicon_hoops.png")
+        elif self.team2iconstring.get() == "Sockcar":
+            icon_orange = Image.open("img/teamicons/teamicon_sockcar.png")
+
         outframe = copy.deepcopy(overlayimage)
 
         W = int(self.monitorxstring.get())
@@ -187,6 +209,16 @@ class InGameOverlayTab(tk.Frame):
         w,h = draw.textsize(teamname1, font)
         draw.text((W/2 - w - OFFSET_X_TEAMNAMES, OFFSET_Y_TEAMNAMES), teamname1, (255,255,255,220), font=font)
 
+        ## TEAM 1 ICON
+        for j in range(icon_blue.height):
+            for i in range(icon_blue.width):
+                outpixel = outframe.getpixel((i+258, j+8))
+                if outpixel[0] < 5 and outpixel[1] < 5 and outpixel[2] < 5:
+                    newpixel = icon_blue.getpixel((i, j))
+                    alphascaled = tuple(map(lambda x: int(x / (255 / (newpixel[-1] + 1))), newpixel))
+                    newpixel = tuple(map(add, outpixel, alphascaled))
+                    outframe.putpixel((i+258, j+8), newpixel)
+
         ## TEAM 2
         teamname2 = self.team2namestring.get().upper()
         if len(teamname2) > MAX_TEAMNAME_LENGTH:
@@ -194,6 +226,17 @@ class InGameOverlayTab(tk.Frame):
 
         w,h = draw.textsize(teamname2, font)
         draw.text((W/2 + OFFSET_X_TEAMNAMES, OFFSET_Y_TEAMNAMES), teamname2, (255,255,255,220), font=font)
+
+        ## TEAM 2 ICON
+        for j in range(icon_orange.height):
+            for i in range(icon_orange.width):
+                outpixel = outframe.getpixel((i+1556, j+8))
+                if outpixel[0] < 5 and outpixel[1] < 5 and outpixel[2] < 5:
+                    newpixel = icon_orange.getpixel((i, j))
+                    alphascaled = tuple(map(lambda x: int(x / (255 / (newpixel[-1] + 1))), newpixel))
+                    newpixel = tuple(map(add, outpixel, alphascaled))
+                    outframe.putpixel((i+1556, j+8), newpixel)
+
 
         ## GAME DESCRIPTION
         gamedesc = self.gamenamestring.get().upper()
@@ -262,6 +305,8 @@ class InGameOverlayTab(tk.Frame):
         #    os.makedirs("/out")
 
         outframe = outframe.resize((int(self.monitorxstring.get()),int(self.monitorystring.get())),resample=Image.ANTIALIAS)
+        outframe.save("output/ingame_current.png")
+        time.sleep(1)
         outframe.save("output/ingame_current.png")
 
         return outframe
