@@ -8,8 +8,12 @@ import time
 MAX_TEAMNAME_LENGTH = 16
 MAX_MATCHNAME_LENGTH = 20
 
-OFFSET_X_TEAMNAMES = 192
+OFFSET_X_TEAMNAMES = 180
 OFFSET_Y_TEAMNAMES = 11
+
+OFFSET_Y_TEAMICON = 8
+OFFSET_X_BLUEICON = 258
+OFFSET_X_ORANGEICON = 1556
 
 OFFSET_Y_MATCHNAME = 88
 
@@ -17,6 +21,26 @@ SPACING_X_WINBOXES = 45
 OFFSET_Y_WINBOXES = 80
 OFFSET_X_BLUEWINS = 745
 OFFSET_X_ORANGEWINS = 1093
+
+teamicons = {
+    "Hoops":    "img/teamicons/teamicon_hoops.png",
+    "Sockcar":  "img/teamicons/teamicon_sockcar.png",
+    "USA":      "img/teamicons/teamicon_usa.png",
+    "RLCS":     "img/teamicons/teamicon_rlcs.png",
+    "SSL":      "img/teamicons/teamicon_ssl.png",
+    "TheWall":  "img/teamicons/teamicon_thewall.png",
+    "Trihouse": "img/teamicons/teamicon_trihouse.png",
+    "HoR":      "img/teamicons/teamicon_hor.png",
+    "FaZe2":    "img/teamicons/teamicon_faze2.png",
+    "IBME":     "img/teamicons/teamicon_ibme.png",
+    "Ghost":    "img/teamicons/teamicon_ghost.png",
+    "B+":       "img/teamicons/teamicon_bplus.png",
+    "SSG":      "img/teamicons/teamicon_ssg.png",
+    "MtMnhB":   "img/teamicons/teamicon_mtmahb.png",
+    "ianbat":   "img/teamicons/teamicon_ianbat.png",
+    "sheeesh":  "img/teamicons/teamicon_sheeesh.png"
+}
+
 
 class InGameOverlayTab(tk.Frame):
     def __init__(self, root):
@@ -47,7 +71,7 @@ class InGameOverlayTab(tk.Frame):
         tk.Label(master=self.blueteamframe, text="Icon:").grid(row=3,column=0, sticky=tk.E)
         self.team1iconstring = tk.StringVar()
         self.team1iconstring.set("Hoops")
-        self.team1iconmenu = tk.OptionMenu(self.blueteamframe, self.team1iconstring, "Hoops", "Sockcar", "USA", "RLCS", "SSL", "TheWall", "Trihouse", "HoR")
+        self.team1iconmenu = tk.OptionMenu(self.blueteamframe, self.team1iconstring, *teamicons.keys())
         self.team1iconmenu.grid(row=3,column=1,padx=10,sticky=tk.W)
 
 
@@ -77,7 +101,7 @@ class InGameOverlayTab(tk.Frame):
         tk.Label(master=self.orangeteamframe, text="Icon:").grid(row=3,column=3, sticky=tk.E)
         self.team2iconstring = tk.StringVar()
         self.team2iconstring.set("Hoops")
-        self.team2iconmenu = tk.OptionMenu(self.orangeteamframe, self.team2iconstring, "Hoops", "Sockcar", "USA", "RLCS", "SSL", "TheWall", "Trihouse", "HoR")
+        self.team2iconmenu = tk.OptionMenu(self.orangeteamframe, self.team2iconstring, *teamicons.keys())
         self.team2iconmenu.grid(row=3,column=4,padx=10,sticky=tk.W)
 
         ## GAME CONFIG
@@ -165,8 +189,10 @@ class InGameOverlayTab(tk.Frame):
         self.team2namestring.set("Orange Team")
         self.team1winspinbox.delete(0,"end")
         self.team1winspinbox.insert(0,"0")
+        self.team1iconstring.set("Hoops")
         self.team2winspinbox.delete(0,"end")
         self.team2winspinbox.insert(0,"0")
+        self.team2iconstring.set("Hoops")
         self.gamenamestring.set("BO3")
         self.monitorxstring.set("1920")
         self.monitorystring.set("1080")
@@ -184,40 +210,8 @@ class InGameOverlayTab(tk.Frame):
         winorange_off = Image.open("img/win_orange_off.png")
         winorange_on = Image.open("img/win_orange_on.png")
 
-
-        if self.team1iconstring.get() == "Hoops":
-            icon_blue = Image.open("img/teamicons/teamicon_hoops.png")
-        elif self.team1iconstring.get() == "Sockcar":
-            icon_blue = Image.open("img/teamicons/teamicon_sockcar.png")
-        elif self.team1iconstring.get() == "USA":
-            icon_blue = Image.open("img/teamicons/teamicon_usa.png")
-        elif self.team1iconstring.get() == "RLCS":
-            icon_blue = Image.open("img/teamicons/teamicon_rlcs.png")
-        elif self.team1iconstring.get() == "SSL":
-            icon_blue = Image.open("img/teamicons/teamicon_ssl.png")
-        elif self.team1iconstring.get() == "TheWall":
-            icon_blue = Image.open("img/teamicons/teamicon_thewall.png")
-        elif self.team1iconstring.get() == "Trihouse":
-            icon_blue = Image.open("img/teamicons/teamicon_trihouse.png")
-        elif self.team1iconstring.get() == "HoR":
-            icon_blue = Image.open("img/teamicons/teamicon_hor.png")
-
-        if self.team2iconstring.get() == "Hoops":
-            icon_orange = Image.open("img/teamicons/teamicon_hoops.png")
-        elif self.team2iconstring.get() == "Sockcar":
-            icon_orange = Image.open("img/teamicons/teamicon_sockcar.png")
-        elif self.team2iconstring.get() == "USA":
-            icon_orange = Image.open("img/teamicons/teamicon_usa.png")
-        elif self.team2iconstring.get() == "RLCS":
-            icon_orange = Image.open("img/teamicons/teamicon_rlcs.png")
-        elif self.team2iconstring.get() == "SSL":
-            icon_orange = Image.open("img/teamicons/teamicon_ssl.png")
-        elif self.team2iconstring.get() == "TheWall":
-            icon_orange = Image.open("img/teamicons/teamicon_thewall.png")
-        elif self.team2iconstring.get() == "Trihouse":
-            icon_orange = Image.open("img/teamicons/teamicon_trihouse.png")
-        elif self.team2iconstring.get() == "HoR":
-            icon_orange = Image.open("img/teamicons/teamicon_hor.png")
+        icon_blue = Image.open(teamicons[self.team1iconstring.get()])
+        icon_orange = Image.open(teamicons[self.team2iconstring.get()])
 
         outframe = copy.deepcopy(overlayimage)
 
@@ -237,12 +231,10 @@ class InGameOverlayTab(tk.Frame):
         ## TEAM 1 ICON
         for j in range(icon_blue.height):
             for i in range(icon_blue.width):
-                outpixel = outframe.getpixel((i+258, j+8))
+                outpixel = outframe.getpixel((i+OFFSET_X_BLUEICON, j+OFFSET_Y_TEAMICON))
                 if outpixel[0] < 5 and outpixel[1] < 5 and outpixel[2] < 5 and outpixel[3] > 200:
                     newpixel = icon_blue.getpixel((i, j))
-                    alphascaled = tuple(map(lambda x: int(x / (255 / (newpixel[-1] + 1))), newpixel))
-                    newpixel = tuple(map(add, outpixel, alphascaled))
-                    outframe.putpixel((i+258, j+8), newpixel)
+                    outframe.putpixel((i+OFFSET_X_BLUEICON, j+OFFSET_Y_TEAMICON), newpixel)
 
         ## TEAM 2
         teamname2 = self.team2namestring.get().upper()
@@ -255,12 +247,10 @@ class InGameOverlayTab(tk.Frame):
         ## TEAM 2 ICON
         for j in range(icon_orange.height):
             for i in range(icon_orange.width):
-                outpixel = outframe.getpixel((i+1556, j+8))
+                outpixel = outframe.getpixel((i+OFFSET_X_ORANGEICON, j+OFFSET_Y_TEAMICON))
                 if outpixel[0] < 5 and outpixel[1] < 5 and outpixel[2] < 5 and outpixel[3] > 200:
                     newpixel = icon_orange.getpixel((i, j))
-                    alphascaled = tuple(map(lambda x: int(x / (255 / (newpixel[-1] + 1))), newpixel))
-                    newpixel = tuple(map(add, outpixel, alphascaled))
-                    outframe.putpixel((i+1556, j+8), newpixel)
+                    outframe.putpixel((i+OFFSET_X_ORANGEICON, j+OFFSET_Y_TEAMICON), newpixel)
 
 
         ## GAME DESCRIPTION
@@ -330,6 +320,8 @@ class InGameOverlayTab(tk.Frame):
         #    os.makedirs("/out")
 
         outframe = outframe.resize((int(self.monitorxstring.get()),int(self.monitorystring.get())),resample=Image.ANTIALIAS)
-        outframe.save("output/ingame_current.png")
-
-        return outframe
+        try:
+            outframe.save("output/ingame_current.png")
+        except OSError:
+            print("LOLOLOL")
+            self.GenerateImage()
